@@ -1,7 +1,3 @@
-学习笔记
-
-冒泡排序, 选择排序, 插入排序, 快速排序, 归并排序
-```
 from typing import List
 
 class Solution:
@@ -62,12 +58,13 @@ class Solution:
                 else:
                     t.append(n[j])
                     j += 1
-            if(i <= m): t += n[i : m + 1]
-            elif(j <= r): t += n[j : r + 1]
-            for k in range(len(t)): n[k + l] = t[k]
+            while(i <= m):
+                t.append(n[i])
+                i += 1
+            while(j <= r):
+                t.append(n[j])
+                j += 1
+            for k in range(len(t)):
+                n[k + l] = t[k]
         sub_merge(nums, 0, len(nums) - 1)
         return nums
-
-c = Solution()
-print(c.merge_sort([5,4,3,2,1]))
-```
